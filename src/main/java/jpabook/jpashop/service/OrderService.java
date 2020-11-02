@@ -41,13 +41,7 @@ public class OrderService {
         orderRepository.save(order);
         return  order.getId();
 
-        /**
-         * 주문 검색
-         */
-        /*
-        public List<Order> findOrders(OrderSearch orderSearch) {
-            return orderRepository.findAll(orderSearch);
-        }*/
+
     }
 
     public void cancelOrder(Long orderId) {
@@ -56,5 +50,12 @@ public class OrderService {
         Order order = orderRepository.findOne(orderId);
         //주문 취소
         order.cancel();
+    }
+
+    /**
+     * 주문 검색
+     */
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAll(orderSearch);
     }
 }
