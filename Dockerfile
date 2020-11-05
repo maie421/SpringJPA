@@ -1,3 +1,3 @@
-FROM openjdk:8-jdk
+FROM adoptopenjdk/openjdk11
 
 CMD ["./gradlew", "bootRun"]
