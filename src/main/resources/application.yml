@@ -4,7 +4,7 @@ spring:
     suffix: .html
   datasource:
     url: jdbc:mysql://test_database:3306/test_db?useSSL=false
-    username: test_db
+    username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
