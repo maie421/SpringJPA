@@ -20,7 +20,7 @@ import static java.util.stream.Collectors.toList;
 public class OrderSimpleApiController {
     
     private final OrderRepository orderRepository;
-    
+
     @GetMapping("/api/v2/simple-orders")
     public Result orderV2(){
         List<Order> orders =  orderRepository.findAll();
@@ -39,6 +39,10 @@ public class OrderSimpleApiController {
                 .collect(toList());
         return new Result(result);
     }
+/*    @GetMapping("/api/v4/simple-orders")
+    public List<OrderSimpleQueryDto> ordersV4() {
+        return orderSimpleQueryRepository.findOrderDtos();
+    }*/
 
     @Data
     @AllArgsConstructor
