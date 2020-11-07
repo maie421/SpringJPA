@@ -9,7 +9,7 @@ COPY settings.gradle .
 COPY src src
 
 From adoptopenjdk:8-jdk-hotspot
-COPY --from=builder build/libs/*.jar app.jar
+ARG JAR_FILE=target/Jungstagram-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/jungstagram.jar"]
