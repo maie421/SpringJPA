@@ -1,7 +1,13 @@
-From adoptopenjdk:8-jdk-hotspot AS builder
+FROM adoptopenjdk/openjdk11 as builder
 
-ARG JAR_FILE=target/Jungstagram-0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} jungstagram.jar
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+COPY settings.gradle .
+COPY src src
+RUN chmod +x ./gradlew
+RUN ./gradlew bootjar
 
-EXPOSE 8080
+FROM adoptopenjdk/openjdk11
+COPY --from=builder build/libs/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
